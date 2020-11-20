@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    ports: ['9000:9000']
+    container_name: symfony5_microkernel
+    restart: on-failure
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/var/www/symfony5_microkernel
+
+
