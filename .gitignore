@@ -1,0 +1,19 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/.env
+/public/bundles/
+/var/cache/*
+/var/log/*
+/vendor/
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###< ide settings ###
+.idea
+###> ide settings ###
