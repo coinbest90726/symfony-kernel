@@ -1,4 +1,4 @@
-FROM php:7.4.12-zts-buster
+FROM php:7.4.12-fpm-buster
 
 LABEL maintainer="Rohit Jagtiani <dev.rjagtiani@gmail.com>"
 
@@ -12,8 +12,6 @@ RUN apt-get update && apt-get install -y git wget zlib1g-dev libzip-dev libonig-
 
 ADD docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-WORKDIR /var/www/symfony5_microkernel
+WORKDIR /var/www/www.inmoveit.es
 
-EXPOSE 9000
-
-CMD ["php","-a"]
+CMD ["php-fpm"]
