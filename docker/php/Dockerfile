@@ -12,6 +12,4 @@ RUN apt-get update && apt-get install -y git wget zlib1g-dev libzip-dev libonig-
 
 ADD docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-WORKDIR /var/www/www.inmoveit.es
-
 CMD ["php-fpm"]
