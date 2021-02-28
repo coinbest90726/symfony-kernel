@@ -6,7 +6,7 @@
 DOCKER_COMPOSE                = docker-compose
 PROJECT_DIR                   = /var/www/symfony5_microkernel
 DOCKER_BASH                   = docker exec -ti symfony5_microkernel bash
-DOCKER_EXEC_ROOT              = ${DOCKER_BASH} -c
+DOCKER_EXEC                   = ${DOCKER_BASH} -c
 PROJECT_DIR                   = $(shell pwd)
 
 
@@ -47,11 +47,11 @@ test:
 	$(DOCKER_EXEC) 'php bin/phpunit'
 
 composer: ## Install vendors according to the current composer.lock file on sf5 microkernel
-	$(DOCKER_EXEC) 'php -d memory_limit=-1 php composer.phar install --no-interaction --optimize-autoloader'
+	$(DOCKER_EXEC) 'php -d memory_limit=-1 composer.phar install --no-interaction --optimize-autoloader'
 
 composer-update: ## Update vendors on sf5 microkernel or single provided 'PACKAGE' | usage: (make composer-update) (make composer-update PACKAGE={package})
-	$(DOCKER_EXEC) 'php -d memory_limit=-1 php composer.phar update --no-interaction $(PACKAGE)'
+	$(DOCKER_EXEC) 'php -d memory_limit=-1 composer.phar update --no-interaction $(PACKAGE)'
 
 composer-require: ## Install new composer package on sf5 microkernel | usage: (make composer-require PACKAGE={package})
-	$(DOCKER_EXEC) 'php -d memory_limit=-1 php composer.phar require $(PACKAGE) --no-interaction'
+	$(DOCKER_EXEC) 'php -d memory_limit=-1 composer.phar require $(PACKAGE) --no-interaction'
 
